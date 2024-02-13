@@ -1,0 +1,83 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<style>
+  h1 {
+    color: #000;
+  }
+
+  h3 {
+    color: #000;
+  }
+
+  p {
+    color: #000;
+  }
+
+  #imagen_perfil {
+    border: solid 3px #0D6EFD;
+    margin-top: 20px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+</style>
+
+<!-- Hero Section -->
+<header class="row bg-white">
+  <div class="col-md-4">
+    <!-- Actualiza la ruta de la imagen del perfil -->
+    <img src="{{ perfil.image.url }}" id="imagen_perfil" />
+  </div>
+
+  <div class="col-md-8 my-auto p-4">
+    <h1>Yo soy <strong>{{ perfil.nombre_profesor }}</strong></h1>
+    <h3>{{ perfil.descripcion_profesor }}</h3>
+    <p>{{ perfil.biografia_profesor }}</p>
+    <a class="btn btn-primary btn-lg rounded-0 my-3" href="{% url 'editar_perfil' %}">Editar</a>
+  </div>
+</header>
+
+<!-- Porfolio Section -->
+<div class="row my-4 text-center">
+
+  <h3>Mis Proyectos</h3>
+  <p>Proyectos en los que podrás participar</p>
+
+  {% for project in projects %}
+    <div class="col-md-4 p-4">
+      <div class="card bg-white card-project">
+        <!-- Utiliza la URL del proyecto para la imagen -->
+        <img src="{{ project.image.url }}" class="card-img-top" />
+
+        <div class="card-body">
+
+          <h3 style="color: #000;">{{ project.title }}</h3>
+          <p style="color: #0000;">{{ project.description }}</p>
+
+          {% if project.url %}
+          <a href="{{project.url}}" class="btn btn-primary btn-sm" target="__blank" rel="noreferrer" style="border-radius: 8px;">Visit the
+            Project</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+{% endblock %}
+
+{% block navbar %}
+  {% if request.path == '/portafolio/perfil/' %}
+    <!-- Agrega el botón solo si la URL actual corresponde a la página de perfil -->
+    <a class="navbar-brand fw-bold fst-italic" href="{% url 'perfil' %}">Perfil</a>
+  {% endif %}
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+{% endblock %}
