@@ -8,7 +8,6 @@ class RegistroForm(UserCreationForm):
         'class':'form-control',
         'id':'floatingInput',
         'placeholder':'Username'
-
     }), required=True)
 
     email = forms.EmailField(label='', widget=forms.EmailInput(attrs={
