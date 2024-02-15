@@ -97,12 +97,16 @@ WSGI_APPLICATION = "django_portfolio.wsgi.application"
     
 # }
 
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default='mysql://root:C@blehdmi1@127.0.0.1:3306/ucc'
+#     )
+# }
 DATABASES = {
     'default': dj_database_url.config(
-        default='mysql://root:C@blehdmi1@127.0.0.1:3306/ucc'
+        default='postgresql://ucc_nbpl_user:@dpg-cn78o9o21fec73fkgn80-a:5432/ucc_nbpl'
     )
 }
-
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
