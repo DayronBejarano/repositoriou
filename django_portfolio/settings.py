@@ -99,7 +99,7 @@ WSGI_APPLICATION = "django_portfolio.wsgi.application"
 DATABASES = {
     'default': dj_database_url.config(
         # Feel free to alter this value to suit your needs.
-        default='mysql://USER:PASSWORD@HOST:3306/ucc',
+        default='mysql://root:C@blehdmi1@127.0.0.1:3306/ucc',
         conn_max_age=600
     )
 }
