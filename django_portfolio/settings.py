@@ -83,26 +83,25 @@ WSGI_APPLICATION = "django_portfolio.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'mysql.connector.django',
-        'NAME': 'ucc',
-        'USER': 'root',
-        'PASSWORD': 'C@blehdmi1',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
-        'OPTIONS': {
-            
-        },
-    }
-}
+
+
+
 # DATABASES = {
-#     'default': dj_database_url.config(
-#         # Feel free to alter this value to suit your needs.
-#         default='postgresql://postgres:postgres@localhost/postgres',
-#         conn_max_age=600
-#     )
+#         'ENGINE': 'mysql.connector.django',
+#         'NAME': 'ucc',
+#         'USER': 'root',
+#         'PASSWORD': 'C@blehdmi1',
+#         'HOST': '127.0.0.1',
+#         'PORT': '3306',
+#         'OPTIONS': {},
+    
 # }
+
+DATABASES = {
+    'default': dj_database_url.config(
+        default='mysql://root:C@blehdmi1@127.0.0.1:3306/ucc'
+    )
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
